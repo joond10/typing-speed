@@ -1,4 +1,4 @@
-//public class HardMode extends GameMode {
+//public class NormalMode extends  GameMode{
 //    @Override
 //    public void displayText() {
 //

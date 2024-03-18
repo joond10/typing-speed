@@ -11,22 +11,30 @@ public class Main {
         int selection;
 
         do {
-            System.out.println("|Select a game mode |");
-            System.out.println("---------------------");
-            System.out.println("|1. Random word rush|");
-            System.out.println("|2. Set paragraph   |");
-            System.out.println("|0. Exit            |");
-            System.out.println("---------------------");
+            System.out.println("Select a game mode difficulty");
+            System.out.println("-----------------");
+            System.out.println("|1. Easy mode   |");
+            System.out.println("-----------------");
+            System.out.println("|2. Normal mode |");
+            System.out.println("-----------------");
+            System.out.println("|3. Hard mode   |");
+            System.out.println("-----------------");
+            System.out.println("|0. Exit game   |");
+            System.out.println("-----------------");
             System.out.print("> ");
 
             selection = scanner.nextInt();
 
             switch (selection) {
                 case 1:
-                    // random word game
+                    GameMode easyMode = new EasyMode();
+                    easyMode.startGame();
                     break;
                 case 2:
-                    // difficulty menu
+                    // normal
+                    break;
+                case 3:
+                // hard mode
                     break;
                 case 0:
                     System.out.print("Program terminated! See you again soon.");
@@ -35,7 +43,7 @@ public class Main {
                     System.out.println("Invalid selection!\n3");
             }
 
-        } while (selection != 0);
+        } while (selection < 0 && selection > 3);
 
     }
 }
