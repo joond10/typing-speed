@@ -28,22 +28,25 @@ public class Main {
             switch (selection) {
                 case 1:
                     GameMode easyMode = new EasyMode();
-                    easyMode.startGame();
+                    easyMode.initializeGame();
+                    easyMode.evaluateInput();
                     break;
                 case 2:
-                    // normal
+                    //GameMode normalMode = new NormalMode();
+                    //normalMode.initializeGame();
                     break;
                 case 3:
-                // hard mode
+                    //GameMode hardMode = new HardMode();
+                    //hardMode.initializeGame();
                     break;
                 case 0:
                     System.out.print("Program terminated! See you again soon.");
                     break;
                 default:
-                    System.out.println("Invalid selection!\n3");
+                    System.out.println("Invalid selection!\n");
             }
 
-        } while (selection < 0 && selection > 3);
+        } while (selection < 0 || selection > 3);
 
     }
 }

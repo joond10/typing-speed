@@ -1,30 +1,34 @@
+import java.time.LocalTime;
 import java.util.Random;
+import java.util.Scanner;
 
 public class EasyMode extends GameMode {
 
-
-    //Fields
-    //Static - Belongs to the class itself and not instance, it is class wide
-    //Final - barred from being modified making this variable constant
-    private static final String[] easyWordBank = {
+    Scanner scanner = new Scanner(System.in);
+    String m_stringEntered;
+    private static final String[] m_easyWordBank = {
             "the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"
     };
 
-    //Constructor
     public EasyMode() {
-        super(easyWordBank);
+        super(m_easyWordBank);
+        m_stringEntered = "";
     }
 
-    @Override
-    public void startGame() {
-        super.startGame();
+    public void initializeGame() {
+        displayPrompt();
+        displayText();
+        double startTime = LocalTime.now().toNanoOfDay();
+        System.out.println();
+        m_stringEntered = scanner.nextLine();
+        evaluateInput(m_stringEntered, startTime);
     }
 
     @Override
     protected void displayText() {
-        super.displayText();
-        //What to override and add here hmm
-
-        //Otherwise this isn't polymorphism
+        //For each loop, every element stored in s
+        for (String s : m_easyWordBank) {
+            System.out.print(s + " ");
+        }
     }
 }
