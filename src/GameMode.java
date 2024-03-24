@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.time.LocalTime;
@@ -47,30 +50,49 @@ public abstract class GameMode {
         String[] inputWords = userInput.split(" "); // Split the user input into an array of words
 
         int correctWords = 0;
+        int totalCorrectCharacters = 0;
         for (String inputWord : inputWords) {
             for (String word : m_wordBank) {
                 if (inputWord.equals(word)) {
+                    totalCorrectCharacters += inputWord.length();
                     correctWords++;
                     break; // If a match is found, break out of the inner loop
                 }
             }
         }
+        double test = LocalTime.now().toNanoOfDay();
+        //double seconds = elapsedTime / 1000000000.0;
 
         double end = LocalTime.now().toNanoOfDay();
         double elapsedTime = end - startTime;
-        double seconds = elapsedTime / 1000000000.0;
-        System.out.println(seconds);
+        double elapsedSeconds = elapsedTime / 1000000000.0;
+
+        System.out.println();
+        System.out.println("It took you: " + (int)elapsedSeconds + " seconds to type everything");
+        System.out.println("You got: " + correctWords + " out of " + inputWords.length + " words correct" );
+        if (correctWords != inputWords.length) {
+            List<String> incorrectWords = new ArrayList<>();
+
+// Iterate through each word in the user input
+            for (String inputWord : inputWords) {
+                // If the word is not in the word bank, add it to the list of incorrect words
+                if (!Arrays.asList(m_wordBank).contains(inputWord)) {
+                    incorrectWords.add(inputWord);
+                }
+            }
+            System.out.print("This is where you messed up: ");
+            for (String s :incorrectWords) {
+                System.out.print(s + " ");
+            }
+
+        }
+        System.out.println();
 
 // Calculate total characters typed (including spaces)
-        int totalCharactersTyped = userInput.length();
+        int wpm = (int)((((double) totalCorrectCharacters / 5) / elapsedSeconds) * 60);
 
-// Calculate average characters per word (based on the total characters and correct words count)
-        double averageCharactersPerWord = (double) totalCharactersTyped / correctWords;
-
-// Calculate WPM based on elapsed time and average characters per word
-        double wpm = (totalCharactersTyped / averageCharactersPerWord) / (seconds / 60);
 
         // Print or return the calculated WPM
-        System.out.println("Your WPM is " + wpm + "!");
+        System.out.println("Your WPM is: " + wpm + "!");
     }
 }
