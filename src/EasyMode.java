@@ -1,5 +1,4 @@
 import java.time.LocalTime;
-import java.util.Random;
 import java.util.Scanner;
 
 public class EasyMode extends GameMode {

@@ -57,13 +57,20 @@ public abstract class GameMode {
         }
 
         double end = LocalTime.now().toNanoOfDay();
-        double elapsedTime = end - start;
+        double elapsedTime = end - startTime;
         double seconds = elapsedTime / 1000000000.0;
+        System.out.println(seconds);
 
-        // (x characters / 5) / 1min = y WPM
+// Calculate total characters typed (including spaces)
+        int totalCharactersTyped = userInput.length();
 
+// Calculate average characters per word (based on the total characters and correct words count)
+        double averageCharactersPerWord = (double) totalCharactersTyped / correctWords;
 
-        return wpm;
+// Calculate WPM based on elapsed time and average characters per word
+        double wpm = (totalCharactersTyped / averageCharactersPerWord) / (seconds / 60);
+
+        // Print or return the calculated WPM
+        System.out.println("Your WPM is " + wpm + "!");
     }
-
 }

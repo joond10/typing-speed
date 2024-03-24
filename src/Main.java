@@ -29,15 +29,14 @@ public class Main {
                 case 1:
                     GameMode easyMode = new EasyMode();
                     easyMode.initializeGame();
-                    easyMode.evaluateInput();
                     break;
                 case 2:
-                    //GameMode normalMode = new NormalMode();
-                    //normalMode.initializeGame();
+                    GameMode normalMode = new NormalMode();
+                    normalMode.initializeGame();
                     break;
                 case 3:
-                    //GameMode hardMode = new HardMode();
-                    //hardMode.initializeGame();
+                    GameMode hardMode = new HardMode();
+                    hardMode.initializeGame();
                     break;
                 case 0:
                     System.out.print("Program terminated! See you again soon.");
