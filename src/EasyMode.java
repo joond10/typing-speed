@@ -1,9 +1,7 @@
 import java.time.LocalTime;
-import java.util.Scanner;
 
 public class EasyMode extends GameMode {
 
-    Scanner scanner = new Scanner(System.in);
     String m_stringEntered;
     private static final String[] m_easyWordBank = {
             "the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"
@@ -11,7 +9,6 @@ public class EasyMode extends GameMode {
 
     public EasyMode() {
         super(m_easyWordBank);
-        m_stringEntered = "";
     }
 
     public void initializeGame() {
@@ -25,7 +22,6 @@ public class EasyMode extends GameMode {
 
     @Override
     protected void displayText() {
-        //For each loop, every element stored in s
         for (String s : m_easyWordBank) {
             System.out.print(s + " ");
         }

@@ -1,34 +1,33 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.time.LocalTime;
-//Game mode is the superclass of difficulty modes
 
 public abstract class GameMode {
-    Random rand = new Random();
-
-    //Fields
     protected String[] m_wordBank;
+    Random rand = new Random();
+    Scanner scanner = new Scanner(System.in);
 
-    //Constructor
-    public GameMode(String[] wordBank) {
+     GameMode(String[] wordBank) {
         m_wordBank = wordBank;
     }
 
+    //Helper function for timer
     private static void sleepSeconds(int seconds) {
+        //The try block contains the code that might throw an exception
         try {
             TimeUnit.SECONDS.sleep(seconds);
+        //Contains code that handles the exception.
         } catch (InterruptedException e) {
-            // Handle the exception, e.g., print a message
             System.out.println("Thread sleep interrupted");
-            // Restore interrupted status
+            //Restore interrupted status
             Thread.currentThread().interrupt();
         }
     }
 
-    public void displayPrompt() {
+    protected void displayPrompt() {
         System.out.println("Type the following text after the timer as fast as you can!");
         System.out.println("Also be sure to press Enter as soon as you're done typing.");
         System.out.println();
@@ -41,41 +40,47 @@ public abstract class GameMode {
         System.out.println();
     }
 
-    abstract public void initializeGame();
+    //Contains the game implementation, derived classes will send their user input
+    abstract void initializeGame();
 
-    //Function that displays the word bank of selected difficulty
+    //Displays a specific word bank based on selected difficulty
     abstract void displayText();
 
-    public void evaluateInput(String userInput, double startTime) {
-        String[] inputWords = userInput.split(" "); // Split the user input into an array of words
-
+    //Evaluates what the user input and returns the results
+    protected void evaluateInput(String userInput, double startTime) {
         int correctWords = 0;
         int totalCorrectCharacters = 0;
+
+        String[] inputWords = userInput.split(" ");
+       //For every word they input
         for (String inputWord : inputWords) {
+            //For every word in the word bank
             for (String word : m_wordBank) {
+                //If what they entered is equivalent to a valid word
                 if (inputWord.equals(word)) {
+                    //Count valid characters and words
                     totalCorrectCharacters += inputWord.length();
                     correctWords++;
-                    break; // If a match is found, break out of the inner loop
+                    break;
                 }
             }
         }
-        double test = LocalTime.now().toNanoOfDay();
-        //double seconds = elapsedTime / 1000000000.0;
 
         double end = LocalTime.now().toNanoOfDay();
         double elapsedTime = end - startTime;
+        //Convert nanoseconds to seconds
         double elapsedSeconds = elapsedTime / 1000000000.0;
 
         System.out.println();
         System.out.println("It took you: " + (int)elapsedSeconds + " seconds to type everything");
         System.out.println("You got: " + correctWords + " out of " + inputWords.length + " words correct" );
         if (correctWords != inputWords.length) {
-            List<String> incorrectWords = new ArrayList<>();
+            //ArrayList, which is used for storing many values that are of the same type
+            ArrayList<String> incorrectWords = new ArrayList<>();
 
-// Iterate through each word in the user input
+            //For each word they input
             for (String inputWord : inputWords) {
-                // If the word is not in the word bank, add it to the list of incorrect words
+                //Whatever they entered that is not in the word bank is added to list of incorrect words
                 if (!Arrays.asList(m_wordBank).contains(inputWord)) {
                     incorrectWords.add(inputWord);
                 }
@@ -87,12 +92,8 @@ public abstract class GameMode {
 
         }
         System.out.println();
-
-// Calculate total characters typed (including spaces)
+        //WPM formula
         int wpm = (int)((((double) totalCorrectCharacters / 5) / elapsedSeconds) * 60);
-
-
-        // Print or return the calculated WPM
         System.out.println("Your WPM is: " + wpm + "!");
     }
 }

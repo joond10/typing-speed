@@ -1,10 +1,7 @@
 import java.time.LocalTime;
-import java.util.Scanner;
 
+public class NormalMode extends GameMode {
 
-public class NormalMode extends GameMode{
-
-    Scanner scanner = new Scanner(System.in);
     String m_stringEntered;
     private static final String[] m_normalWordBank = {
             "algorithm", "concatenate", "iteration", "variable", "interface", "inheritance",
@@ -13,7 +10,6 @@ public class NormalMode extends GameMode{
     };
 
     public NormalMode() {
-        //Initialize base class with normal word bank
         super(m_normalWordBank);
     }
 
@@ -26,10 +22,8 @@ public class NormalMode extends GameMode{
         evaluateInput(m_stringEntered, startTime);
     }
 
-
     @Override
     public void displayText() {
-        //Override display text behaviour
         for (int i = 0; i < 10; i++) {
             System.out.print(m_wordBank[rand.nextInt(m_wordBank.length)] + " ");
         }

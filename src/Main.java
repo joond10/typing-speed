@@ -25,7 +25,6 @@ public class Main {
                 System.out.print("> ");
 
                 selection = scanner.nextInt();
-
                 switch (selection) {
                     case 1:
                         GameMode easyMode = new EasyMode();
@@ -41,7 +40,7 @@ public class Main {
                         break;
                     case 0:
                         System.out.println("Program terminated! See you again soon.");
-                        return; // Exit the program
+                        return;
                     default:
                         System.out.println("Invalid selection!\n");
                 }
@@ -50,6 +49,5 @@ public class Main {
             System.out.println("Do you want to play again? (1 for yes, 0 for no)");
             playAgain = scanner.nextInt();
         } while (playAgain == 1);
-
     }
 }

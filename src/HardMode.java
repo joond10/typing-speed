@@ -1,18 +1,15 @@
 import java.time.LocalTime;
-import java.util.Scanner;
 
-public class HardMode extends GameMode{
-    Scanner scanner = new Scanner(System.in);
+public class HardMode extends GameMode {
     String m_previousWord;
     String m_stringEntered;
     private static final String[] m_hardWordBank = {
-            "exacerbate", "quixotic", "equivocate", "labyrinthine", "perspicacious",
-            "circumlocution", "serendipity", "anachronistic", "incontrovertible", "sesquipedalian",
-            "antediluvian", "mellifluous", "sesquipedalian", "effervescent", "intransigent",
-            "nefarious", "vociferous", "pernicious", "ineffable", "antediluvian"
+            "multithreading", "serialization", "concurrency", "lambda", "stream",
+            "reflection", "immutable", "singleton", "dependency", "injection",
+            "serialization", "deserialization", "asynchronous", "synchronous", "exception",
+            "transaction", "metadata", "middleware", "scalability", "microservice"
     };
     public HardMode() {
-        //Initialize base class with normal word bank
         super(m_hardWordBank);
     }
 
@@ -35,10 +32,8 @@ public class HardMode extends GameMode{
             while (i > 0 && word.equals(m_previousWord)) {
                 word = m_wordBank[rand.nextInt(m_wordBank.length)];
             }
-
             // Print the word followed by a space
             System.out.print(word + " ");
-
             // Store the current word for comparison in the next iteration
             m_previousWord = word;
         }
