@@ -26,7 +26,7 @@ Warm up your typing skills with a simple sentence.
 
 ### Normal mode:
 
-Challenge yourself with a word bank comprising over 20 medium-difficulty programming-related words. The words are randomly arranged each time you run the program.
+Challenge yourself with a word bank comprising over 20 medium-difficulty programming-related words. The words are randomly arranged each time you run the game mode.
 
 ### Hard mode:
 
