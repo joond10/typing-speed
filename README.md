@@ -38,7 +38,7 @@ Test your typing skills with a word bank containing over 20 hard-difficulty prog
 
 ## Project Challenges
 
-- Learning a new language involves understanding its environment and syntax, which took some time to grasp.
+Learning a new language involves understanding its environment and syntax, which took some time to grasp.
 
 ## Project Takeaways
 
