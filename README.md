@@ -1,6 +1,6 @@
 # Typing Speed Application
 
- <img src="assets/main-menu.gif" width="300" alt="main menu"/>
+ <img src="assets/menu.png" alt="main menu"/>
 
 This console-based Java application is designed to enhance your typing speed by measuring your words per minute (WPM) and time elapsed under different difficulty settings.
 
