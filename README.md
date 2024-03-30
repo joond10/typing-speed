@@ -6,7 +6,7 @@ This console-based Java application is designed to enhance your typing speed by 
 
 ## Total Development Period
 
-03-17-202 ~ 03-30-2023
+03-17-2024 ~ 03-30-2024
 
 ## Tech Stack
 
