@@ -16,7 +16,7 @@ This console-based Java application is designed to enhance your typing speed by 
 
 ### Learn the basics of Java:
 
-The primary goal of this project was to apply the skills acquired while learning object-oriented programming and C++ to learn Java effectively.
+The primary goal of this project was to demonstrate the transferability of fundamental programming principles across different languages.
 
 ## Features
 
@@ -34,17 +34,12 @@ Test your typing skills with a word bank containing over 20 hard-difficulty prog
 
 ### Example functionality
 
-<p >
-<img src="assets/create.gif" height="300" alt="add exercise" style="margin-right: 10px;"/>
-<img src="assets/update.gif" height="300" alt="edit exercise" style="margin-right: 10px;"/>
-<img src="assets/read.gif" height="300" alt="view exercise" style="margin-right: 10px;"/>
-</p>
+<img src="assets/functionality.gif"  alt="program functionality"/>
 
 ## Project Challenges
 
-- Learning a new language involves understanding its environment and syntax, which took time to grasp.
+- Learning a new language involves understanding its environment and syntax, which took some time to grasp.
 
 ## Project Takeaways
 
-- Gained proficiency in Java programming and familiarity with Java development environment.
-- Transferred object-oriented programming concepts learned from C++ such as inheritance and polymorphism to effectively learn basic Java.
+Throughout this project, drawing from my background in C++, I effectively applied object-oriented programming concepts, notably inheritance and polymorphism, to navigate learning Java. By implementing a base class, GameMode, and designing a hierarchical structure for derived classes such as Easy Mode, Normal Mode, and Hard Mode, I was able get up to speed with where my programming capabilities are despite Java being a new language.
